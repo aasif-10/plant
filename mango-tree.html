@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mango Tree - Plant Details</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f6fff5;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: white;
+    }
+    .plant-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .info-box {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #e7fbe9;
+      border-left: 5px solid #4CAF50;
+      border-radius: 8px;
+    }
+    .info-box h3 {
+      margin-top: 0;
+    }
+    .price {
+      font-size: 22px;
+      color: #1c7a1c;
+      font-weight: bold;
+    }
+    .color-boxes {
+      margin-top: 10px;
+    }
+    .color-swatch {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border-radius: 4px;
+      margin-right: 8px;
+      border: 1px solid #ccc;
+    }
+    .feedback {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #fffbe6;
+      border-left: 5px solid #ffb300;
+      border-radius: 8px;
+    }
+    .feedback textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      resize: none;
+    }
+    .feedback button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .feedback button:hover {
+      background-color: #388e3c;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      background-color: #388e3c;
+    }
+    .purchase-section {
+      margin-top: 30px;
+      background-color: #e6fbe9;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .purchase-section label {
+      font-weight: bold;
+    }
+    .purchase-section input[type="radio"] {
+      margin-right: 6px;
+      cursor: pointer;
+    }
+    .purchase-section button.qty-btn {
+      margin-left: 10px;
+      padding: 4px 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      user-select: none;
+    }
+    .purchase-section button.qty-btn:hover {
+      background-color: #388e3c;
+    }
+    #quantity {
+      width: 40px;
+      text-align: center;
+      margin: 0 10px;
+      font-weight: bold;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 4px 0;
+    }
+    .purchase-section button.add-to-cart {
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .purchase-section button.add-to-cart:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="images/mango.jpg" alt="Mango Tree" class="plant-image">
+
+    <h1>Mango Tree</h1>
+    <p class="price">Price: ₹249</p>
+
+    <p>Rating:
+      <span style="color: gold;">★ ★ ★ ★ ☆</span> (4.3)
+    </p>
+
+    <p><strong>Category:</strong> Tree</p>
+
+    <div class="info-box">
+      <h3>🪴 Description / Uses:</h3>
+      <p>The Mango Tree is one of the most beloved fruit-bearing trees in India. Known for its sweet, juicy fruits, it also offers shade and is often planted in gardens and farms for both commercial and domestic purposes.</p>
+
+      <h3>🗓 Lifespan:</h3>
+      <p>Typically lives for over 100 years, with fruits starting from the 3rd–5th year.</p>
+
+      <h3>📦 Origin:</h3>
+      <p>Grown organically in our Salem-based nursery farms.</p>
+
+      <h3>🎨 Available Colors:</h3>
+      <div class="color-boxes">
+        <div class="color-swatch" style="background-color: #7a9e45;" title="Green Foliage"></div>
+        <div class="color-swatch" style="background-color: #c1ad6f;" title="Golden Bark"></div>
+      </div>
+    </div>
+
+    <div class="purchase-section">
+      <h3>🛒 Choose Color & Quantity:</h3>
+      <div style="margin-bottom: 15px;">
+        <label><input type="radio" name="color" value="Green Foliage" checked> Green Foliage</label>
+        <label style="margin-left: 15px;"><input type="radio" name="color" value="Golden Bark"> Golden Bark</label>
+      </div>
+
+      <div style="display: flex; align-items: center; margin-bottom: 15px;">
+        <label><strong>Quantity:</strong></label>
+        <button class="qty-btn" onclick="changeQuantity(-1)">➖</button>
+        <input type="text" id="quantity" value="1" readonly>
+        <button class="qty-btn" onclick="changeQuantity(1)">➕</button>
+      </div>
+
+      <p><strong>Unit Price:</strong> ₹<span id="unitPrice">249</span></p>
+      <p><strong>Total Price:</strong> ₹<span id="totalPrice">249</span></p>
+
+      <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <div class="feedback">
+      <h3>💬 Leave Your Feedback</h3>
+      <textarea rows="4" placeholder="Write your thoughts here..."></textarea><br>
+      <button onclick="alert('Thanks for your feedback!')">Submit</button>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="plants.html" class="back-link">← Back to All Plants</a>
+    </div>
+  </div>
+
+  <script>
+    const unitPrice = 249;
+    const quantityInput = document.getElementById('quantity');
+    const totalPriceSpan = document.getElementById('totalPrice');
+
+    function changeQuantity(change) {
+      let quantity = parseInt(quantityInput.value);
+      quantity = Math.max(1, quantity + change);
+      quantityInput.value = quantity;
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const qty = parseInt(quantityInput.value);
+      totalPriceSpan.textContent = unitPrice * qty;
+    }
+
+    function addToCart() {
+      const qty = parseInt(quantityInput.value);
+      const selectedColor = document.querySelector('input[name="color"]:checked').value;
+      const plantName = document.querySelector('h1').textContent.trim();
+
+      const cartItem = {
+        name: plantName,
+        color: selectedColor,
+        price: unitPrice,
+        quantity: qty
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existingIndex = cart.findIndex(item => item.name === cartItem.name && item.color === cartItem.color);
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += cartItem.quantity;
+      } else {
+        cart.push(cartItem);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      window.location.href = 'add-to-cart.html';
+    }
+
+    updateTotal();
+  </script>
+
+</body>
+</html>
